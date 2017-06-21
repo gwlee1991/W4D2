@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cats</title>
+  </head>
+  <body>
+    <h1>Our Cats</h1>
+    <%= link_to "Add Cat", new_cat_url %>
+    <ul>
+      <% @cats.each do |cat| %>
+      <li>
+        <img src="http://static2.businessinsider.com/image/5654150584307663008b4ed8-480/hamilton.jpg" alt="cat_image" height='20%' width='20%'/>
+        <br/>
+        <%= link_to cat.name, cat_url(cat)%>
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>

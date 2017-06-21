@@ -1,0 +1,29 @@
+<h1><%= @cat.name %></h1>
+
+<img src="http://static2.businessinsider.com/image/5654150584307663008b4ed8-480/hamilton.jpg" alt="cat_image"/>
+
+<br/>
+
+<h4><%= @cat.name %>'s Info</h4>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Color</th>
+    <th>Sex</th>
+  </tr>
+  <tr>
+    <td><%= @cat.name %></td>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.sex %></td>
+  </tr>
+</table>
+
+<h4>About <%= @cat.name %></h4>
+<p><%= @cat.description %></p>
+
+<%= button_to "Delete this cat", cat_url(@cat), method: :delete %>
+<%= link_to "Edit this cat's info", edit_cat_url(@cat) %>
+<br/>
+<%= link_to "Back to all cats", cats_url %>

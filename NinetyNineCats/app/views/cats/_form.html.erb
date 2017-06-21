@@ -1,0 +1,28 @@
+<% _action = cat.id ? cat_url(cat) : cats_url %>
+
+<% _verb = cat.id ? "PATCH" : "POST" %>
+
+<form action="<%= _action %>", method="POST">
+  <input type="hidden" value="<%= _verb %>" name="_method">
+  Cat's Name:<input type="text" name="cat[name]" value="<%= cat.name %>">
+
+  <br/>
+
+  Sex: M<input type="radio" name="cat[sex]" value="M" <%= cat.sex == "M" ? "checked" : "" %> >
+      F<input type="radio" name="cat[sex]" value="F" <%= cat.sex == "F" ? "checked" : "" %> >
+  <br/>
+  Color: <select name="cat[color]">
+
+        <% Cat::COLORS.each do |color|%>
+           <option <%=cat.color == color ? "selected" : ""%> value="<%= color %>"><%= color.capitalize %></option>
+        <% end %>
+
+      </select>
+      <br/>
+Birth Date: <input type="date" value="<%=cat.birth_date%>" name="cat[birth_date]">
+      <br/>
+      <textarea name="cat[description]"
+      rows="10" cols="50"><%= cat.description %></textarea>
+      <br/>
+      <input type="submit" name="update" value="Save">
+</form>

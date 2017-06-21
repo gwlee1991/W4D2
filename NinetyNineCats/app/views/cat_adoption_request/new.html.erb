@@ -1,0 +1,8 @@
+<h1>New Adoption Request<h1>
+
+<form action="cat_adoption_requests_url", method="POST">
+  Choose a cat that you would like to adopt:
+    <select name="cat_adoption_request[cat_id]">
+      <% Cat.all.each do |cat| %>
+        <option value="<%= cat.name %>">
+      <% end %>
